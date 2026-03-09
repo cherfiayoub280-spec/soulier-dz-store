@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إتمام الطلب - SOULIER DZ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0eeee;
+      direction: rtl;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 500px;
+      background: #fff;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: all 0.5s;
+      position: relative;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+
+    .submit-btn:hover {
+      background: #333;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #444;
+      text-align: center;
+    }
+
+    /* Confirmation Message */
+    .confirmation {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      margin: 50px auto;
+      max-width: 400px;
+      position: relative;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .confirmation .checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 4px solid #4CAF50;
+      position: relative;
+      margin-bottom: 20px;
+      animation: pop 0.5s ease forwards;
+    }
+
+    .confirmation .checkmark {
+  width: 120px;        /* تكبير الدائرة */
+  height: 120px;       /* تكبير الدائرة */
+  border-radius: 50%;
+  display: inline-block;
+  border: 6px solid #4CAF50;  /* سمك الدائرة */
+  position: relative;
+  margin-bottom: 20px;
+  animation: pop 0.6s ease forwards;
+}
+
+.confirmation .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 35px;          /* تعديل لتناسب الدائرة الكبيرة */
+  top: 60px;           /* تعديل لتناسب الدائرة الكبيرة */
+  width: 30px;         /* تكبير العلامة */
+  height: 16px;        /* تكبير العلامة */
+  border-left: 6px solid #4CAF50;
+  border-bottom: 6px solid #4CAF50;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+  animation: check 0.5s ease 0.6s forwards; /* تظهر بعد الدائرة */
+  opacity: 0;
+}
+
+@keyframes pop {
+  0% {transform: scale(0);}
+  70% {transform: scale(1.2);}
+  100% {transform: scale(1);}
+}
+
+@keyframes check {
+  from {width: 0; height: 0; opacity: 0;}
+  to {width: 30px; height: 16px; opacity: 1;}
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SOULIER DZ Store</h1>
+    <p>إتمام طلب الشراء</p>
+  </header>
+
+  <div class="form-container" id="formContainer">
+    <h2>معلومات الزبون</h2>
+
+    <form id="orderForm">
+      <div class="form-group">
+        <label>الاسم</label>
+        <input type="text" placeholder="أدخل اسمك" required>
+      </div>
+
+      <div class="form-group">
+        <label>اللقب</label>
+        <input type="text" placeholder="أدخل لقبك" required>
+      </div>
+
+      <div class="form-group">
+        <label>العنوان</label>
+        <input type="text" placeholder="أدخل العنوان الكامل" required>
+      </div>
+
+      <div class="form-group">
+        <label>رقم الهاتف</label>
+        <input type="tel" placeholder="05xxxxxxxx" required>
+      </div>
+
+      <div class="form-group">
+        <label>قياس الحذاء</label>
+        <select required>
+          <option value="">اختر القياس</option>
+          <option>39</option>
+          <option>40</option>
+          <option>41</option>
+          <option>42</option>
+          <option>43</option>
+          <option>44</option>
+          <option>45</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>الولاية</label>
+        <select required>
+          <option value="">اختر الولاية</option>
+          <option value="01">أدرار</option>
+          <option value="02">الشلف</option>
+          <option value="03">الأغواط</option>
+          <option value="04">أم البواقي</option>
+          <option value="05">باتنة</option>
+          <option value="06">بجاية</option>
+          <option value="07">بسكرة</option>
+          <option value="08">بشار</option>
+          <option value="09">البليدة</option>
+          <option value="10">البويرة</option>
+          <option value="11">تمنراست</option>
+          <option value="12">تبسة</option>
+          <option value="13">تلمسان</option>
+          <option value="14">تيارت</option>
+          <option value="15">تيزي وزو</option>
+          <option value="16">الجزائر العاصمة</option>
+          <option value="17">الجلفة</option>
+          <option value="18">جيجل</option>
+          <option value="19">سطيف</option>
+          <option value="20">سعيدة</option>
+          <option value="21">سكيكدة</option>
+          <option value="22">سيدي بلعباس</option>
+          <option value="23">عنابة</option>
+          <option value="24">قالمة</option>
+          <option value="25">قسنطينة</option>
+          <option value="26">المدية</option>
+          <option value="27">مستغانم</option>
+          <option value="28">المسيلة</option>
+          <option value="29">معسكر</option>
+          <option value="30">ورقلة</option>
+          <option value="31">وهران</option>
+          <option value="32">البيض</option>
+          <option value="33">إليزي</option>
+          <option value="34">برج بوعريريج</option>
+          <option value="35">بومرداس</option>
+          <option value="36">الطارف</option>
+          <option value="37">تندوف</option>
+          <option value="38">تيسمسيلت</option>
+          <option value="39">الوادي</option>
+          <option value="40">خنشلة</option>
+          <option value="41">سوق أهراس</option>
+          <option value="42">تيبازة</option>
+          <option value="43">ميلة</option>
+          <option value="44">عين الدفلى</option>
+          <option value="45">النعامة</option>
+          <option value="46">عين تموشنت</option>
+          <option value="47">غرداية</option>
+          <option value="48">غليزان</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">تأكيد الطلب</button>
+    </form>
+
+    <div class="note">
+      عند تقديم الطلب سيتم الاتصال بك من طرف البائع لتأكيد الطلب<br>
+      ⚠️ سعر التوصيل يُحدد ويُخبر به أثناء الاتصال
+    </div>
+  </div>
+
+  <!-- Confirmation Message -->
+  <div class="confirmation" id="confirmation">
+    <div class="checkmark"></div>
+    <h2>تم تأكيد الطلب!</h2>
+    <p>شكرًا لك على الشراء. سيتم الاتصال بك لتأكيد الطلب وسعر التوصيل.</p>
+  </div>
+
+  <script>
+  const form = document.getElementById('orderForm');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const nom = form.querySelector('input[placeholder="أدخل اسمك"]').value;
+  const prenom = form.querySelector('input[placeholder="أدخل لقبك"]').value;
+  const adresse = form.querySelector('input[placeholder="أدخل العنوان الكامل"]').value;
+  const tel = form.querySelector('input[type="tel"]').value;
+  const taille = form.querySelectorAll('select')[0].value;
+  const wilaya = form.querySelectorAll('select')[1].value;
+
+  const message = encodeURIComponent(
+`📦 طلب شراء جديد
+
+الاسم: ${nom}
+اللقب: ${prenom}
+العنوان: ${adresse}
+الهاتف: ${tel}
+قياس الحذاء: ${taille}
+الولاية: ${wilaya}`
+  );
+
+  const phone = "213774436476"; 
+
+  const url = `https://wa.me/${phone}?text=${message}`;
+
+  window.open(url, "_blank");
+
+  document.getElementById('formContainer').style.display = 'none';
+  document.getElementById('confirmation').style.display = 'block';
+});
+</script>
+
+
+</body>
+</html>

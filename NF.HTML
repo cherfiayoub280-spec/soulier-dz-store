@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clothing Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e7e7e7;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 30px 20px;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .card h2 {
+      margin: 20px 0 10px;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to SOULIER DZ Store</h1>
+    <p>Choose the type of football boot you want to buy</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <img src="PHOTOS/1.avif" alt="CRAMPON">
+      <h2>CRAMPON</h2>
+      <a href="Crampon.html">Soulier Crampon</a>
+    </div>
+
+    <div class="card">
+      <img src="PHOTOS/20222.jpg" alt="TOUT TERRAIN">
+      <h2>TOUT TERRAIN</h2>
+      <a href="Terrain.html">Tout Terrain</a>
+    </div>
+  </div>
+
+</body>
+</html>
